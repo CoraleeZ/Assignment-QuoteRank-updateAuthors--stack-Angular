@@ -1,0 +1,24 @@
+<a [routerLink]="['/']">Home</a>
+<br>
+<a [routerLink]="['/write',authors._id]">Add a quote</a>
+<p style="color:purple">We have quotes by:</p>
+<p>Quotes by {{authors.name}}:</p>
+<table style="width:500px;text-align: center">
+    <thead>
+        <tr style="width:400px;">
+            <th style="width:30%;color:white;font-size: 600; background-color: gray;">Quotes</th>
+            <th style="width:20%;color:white;font-size: 600; background-color: gray;">Votes</th>
+            <th style="width:50%;color: white;font-size: 600;background-color: gray;">Action available</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let x of quotes'>
+            <td>{{x.quote}}</td>
+            <td>{{x.vote}}</td>
+            <td><button (click)='voteup(x._id)'>vote up</button>
+                <button (click)='votedown(x._id)'>vote down</button>
+                <button (click)='deletequote(x._id)'>Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

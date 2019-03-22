@@ -1,0 +1,17 @@
+<a [routerLink]="['/']">Home</a>
+<p style="color:purple">Add a new quotable author:</p>
+<form (submit)='addauthor()'>
+    <p>Name:</p>
+    <p *ngIf='validations' style="color: red">
+        {{validations.message}}
+    </p>
+    <br>
+    <input type="text" name="name" [(ngModel)]='aut.name'>
+    <br>
+    <br>
+    <a [routerLink]="['/']">
+        <div class='btn'>Cancel</div>
+    </a>
+    <button class='btn'>submit</button>
+</form>
+{{aut|json}}

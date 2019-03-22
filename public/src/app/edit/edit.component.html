@@ -1,0 +1,26 @@
+<div *ngIf='!(err==1)'>
+    <a [routerLink]="['/']">Home</a>
+    <p style="color:purple">Edit this author:</p>
+    <form (submit)='editauthor(ed.id)'>
+        <p>Name:</p>
+        <p *ngIf='validations' style="color: red">
+            {{validations.message}}
+        </p>
+        <br>
+        <input type="text" name="name" [(ngModel)]='ed.name'>
+        <br>
+        <br>
+        <a [routerLink]="['/']">
+            <div class='btn'>Cancel</div>
+        </a>
+        <button class='btn'>submit</button>
+    </form>
+    {{ed|json}}
+</div>
+<div *ngIf='err==1'>
+    <a [routerLink]="['/new']">Add an author</a>
+    <p>
+        "We're sorry, but we could not find the author you are looking for.
+    </p>
+    <p>ERROR:{{errmess}}</p>
+</div>

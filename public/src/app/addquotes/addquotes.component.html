@@ -1,0 +1,17 @@
+<a [routerLink]="['/']">Home</a>
+<p style="color:purple">Provide a new quote by {{aut.name}}:</p>
+<form (submit)='addquote()'>
+    <p *ngIf='validations' style="color: red">
+        {{validations.message}}
+    </p>
+    <p>Quote:</p>
+    <br>
+    <input type="text" name="name" [(ngModel)]='quo.quote '>
+    <br>
+    <br>
+    <a [routerLink]="['/quotes',aut._id]">
+        <div class='btn '>Cancel</div>
+    </a>
+    <button class='btn'>submit</button>
+</form>
+{{quo|json}}
